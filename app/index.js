@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Login from './Login';
+import createHistory from './route';
+import { browserHistory } from 'react-router-dom';
 
 ReactDOM.render(
 	<AppContainer>
-		<Login />
+		{createHistory(browserHistory)}
 	</AppContainer>,
 	document.getElementById('root')
 )
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./Login', () => {
-    const NextApp = require('./Login').default;
+  module.hot.accept('./route', () => {
+    const NextApp = require('./route').default;
     ReactDOM.render(
       <AppContainer>
         <NextApp/>
